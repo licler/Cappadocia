@@ -78,7 +78,6 @@ function html() {
 }
 
 function css() {
-    // return src(path.src.css)
     return gulp.src([
         'node_modules/normalize.css/normalize.css',
         'node_modules/slick-carousel/slick/slick.css',
@@ -95,26 +94,10 @@ function css() {
     .pipe(webpcss())
     .pipe(dest(path.build.css))
     .pipe(clean_css())
-    // .pipe(
-    //     rename({
-    //         extname: ".min.css"
-    //     })
-    // )
       .pipe(dest(path.build.css))
       .pipe(browsersync.stream())
 }
-//     .pipe(
-//         scss({
-//             outputStyle: "expanded"
-//         })
-//     )
-//     .pipe(
-//         group_media()
-//     )
-//  
-
 function js() {
-    // return src(path.src.js)
     gulp.src([
         'node_modules/jquery/dist/jquery.js',
         'node_modules/slick-carousel/slick/slick.js',
@@ -128,25 +111,6 @@ function js() {
             .pipe(dest(path.build.js))
             .pipe(browsersync.stream())
     }
-    
-    
-
-//     .pipe(fileinclude())
-  
-//     .pipe(dest(path.build.js))
-    
-//     .pipe(
-//         uglify()
-//     )
-    
-//     .pipe(
-//         rename({
-//             extname: ".min.js"
-//         })
-//     )
-//     .pipe(dest(path.build.js))
-//     .pipe(browsersync.stream())
-// }
 function video() {
     return src(path.src.video)
     .pipe(dest(path.build.video))

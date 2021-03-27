@@ -98,6 +98,7 @@ function css() {
       .pipe(dest(path.build.css))
       .pipe(browsersync.stream())
 }
+
 function js() {
     gulp.src([
         'node_modules/jquery/dist/jquery.js',

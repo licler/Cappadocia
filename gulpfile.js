@@ -78,11 +78,11 @@ function html() {
 }
 
 function css() {
-    // return src(path.src.css)
     return gulp.src([
         'node_modules/normalize.css/normalize.css',
         'node_modules/slick-carousel/slick/slick.css',
         'node_modules/magnific-popup/dist/magnific-popup.css',
+        'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css',
         'node_modules/animate.css/animate.css',
         'app/scss/style.scss'
       ])  
@@ -95,30 +95,16 @@ function css() {
     .pipe(webpcss())
     .pipe(dest(path.build.css))
     .pipe(clean_css())
-    // .pipe(
-    //     rename({
-    //         extname: ".min.css"
-    //     })
-    // )
       .pipe(dest(path.build.css))
       .pipe(browsersync.stream())
 }
-//     .pipe(
-//         scss({
-//             outputStyle: "expanded"
-//         })
-//     )
-//     .pipe(
-//         group_media()
-//     )
-//  
 
 function js() {
-    // return src(path.src.js)
     gulp.src([
         'node_modules/jquery/dist/jquery.js',
         'node_modules/slick-carousel/slick/slick.js',
         'node_modules/magnific-popup/dist/jquery.magnific-popup.js',
+        'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js',
         'node_modules/wow.js/dist/wow.js',
         'app/js/main.js'  
     
@@ -128,25 +114,6 @@ function js() {
             .pipe(dest(path.build.js))
             .pipe(browsersync.stream())
     }
-    
-    
-
-//     .pipe(fileinclude())
-  
-//     .pipe(dest(path.build.js))
-    
-//     .pipe(
-//         uglify()
-//     )
-    
-//     .pipe(
-//         rename({
-//             extname: ".min.js"
-//         })
-//     )
-//     .pipe(dest(path.build.js))
-//     .pipe(browsersync.stream())
-// }
 function video() {
     return src(path.src.video)
     .pipe(dest(path.build.video))
